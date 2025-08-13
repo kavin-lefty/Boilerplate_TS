@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { adminRoutes } from "./routes";
 import Login from "../pages/Login";
 import AdminLayout from "../layout/layout";
+import NotFound from "../pages/Notfound";
 
 interface RouteConfig {
   path: string;
@@ -24,6 +25,7 @@ export default function Router(): JSX.Element {
         <Route path="/" element={<Login />} />
         <Route path="/*" element={<AdminLayout />}>
           {renderRouteTree(adminRoutes)}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>
